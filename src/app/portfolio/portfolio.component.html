@@ -1,0 +1,16 @@
+<section class="page" [attr.aria-busy]="isLoading() ? 'true' : 'false'">
+  <header class="page__header">
+    <h1 class="page__title">Портфель</h1>
+  </header>
+
+  @if (isLoading()) {
+  <p class="status">Загрузка портфеля…</p>
+  } @else if (errorMessage(); as message) {
+  <p class="status status--error" role="alert">{{ message }}</p>
+  } @else if (!hasPositions()) {
+  <p class="status">Пока нет позиций в портфеле.</p>
+  } @else {
+  <button mat-raised-button type="button" (click)="openModal()">Добавить инструмент в портфель</button>
+  <portfolio-allocation-chart [portfolioValue]="portfolioValue()" />
+  }
+</section>

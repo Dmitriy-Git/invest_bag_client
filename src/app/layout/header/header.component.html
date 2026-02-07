@@ -1,0 +1,42 @@
+<mat-toolbar class="header-container" role="banner" [class.is-theme-dark]="theme() === 'dark'" [class.is-theme-light]="theme() === 'light'">
+  <div class="header-left">
+    <button
+      mat-icon-button
+      type="button"
+      (click)="onToggleCollapse()"
+      class="menu-trigger"
+      [attr.aria-label]="collapsed() ? 'Expand sidebar' : 'Collapse sidebar'">
+      <mat-icon aria-hidden="true">{{ collapsed() ? 'menu_open' : 'menu' }}</mat-icon>
+    </button>
+    <h1 class="app-title">Admin Dashboard</h1>
+  </div>
+
+  <span class="header-spacer"></span>
+
+  <div class="header-right">
+    <button
+      mat-icon-button
+      type="button"
+      class="header-icon-button"
+      [attr.aria-label]="'Search'">
+      <mat-icon aria-hidden="true">search</mat-icon>
+    </button>
+
+    <button
+      mat-icon-button
+      type="button"
+      class="header-icon-button notification-button"
+      [attr.aria-label]="'Notifications'">
+      <mat-icon aria-hidden="true">notifications</mat-icon>
+      <span class="notification-badge" aria-hidden="true">3</span>
+    </button>
+
+    <div class="user-info">
+      <div class="user-avatar">
+        <span class="avatar-text">SM</span>
+      </div>
+      <span class="user-name">Sarash Menon</span>
+    </div>
+  </div>
+</mat-toolbar>
+

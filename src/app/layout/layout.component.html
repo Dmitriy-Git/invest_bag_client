@@ -1,0 +1,17 @@
+<div class="app-layout" [class.is-theme-dark]="sidebarTheme() === 'dark'"
+  [class.is-theme-light]="sidebarTheme() === 'light'">
+  <mat-sidenav-container class="app-sidenav-container">
+    <mat-sidenav class="app-sider" [class.is-collapsed]="isCollapsed()" [opened]="true" [mode]="'side'"
+      [disableClose]="true" [autoFocus]="false">
+      <app-sidebar [collapsed]="isCollapsed()" [theme]="sidebarTheme()" (themeChange)="sidebarTheme.set($event)" />
+    </mat-sidenav>
+    <mat-sidenav-content class="app-content">
+      <app-header [collapsed]="isCollapsed()" (toggleCollapse)="isCollapsed.set(!isCollapsed())"
+        [theme]="sidebarTheme()" />
+      <main class="app-main">
+        <router-outlet />
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <app-chat-widget />
+</div>
